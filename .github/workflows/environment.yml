@@ -1,10 +1,12 @@
-name: Hello
+name: Environment variables
 on: push
 jobs:
-  hello:
+  run:
     runs-on: ubuntu-latest
+    env:
+      BRANCH: main
     steps:
-      - run: echo "Hello, world"
+      - run: echo "${BRANCH}"
       - uses: actions/checkout@v4
         with:
           ref: ${{ env.BRANCH }}
